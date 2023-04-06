@@ -2,19 +2,12 @@ import React, { useState } from "react";
 
 // PersonList component
 const PersonList = () => {
-  // state to store list of persons
   const [persons, setPersons] = useState([{ name: "John", age: 25 }]);
-
-  // state to store name and age of new person
   const [newPerson, setNewPerson] = useState({ name: "", age: "" });
-
-  // function to add new person to list
   const handleAddPerson = () => {
     setPersons([...persons, newPerson]);
     setNewPerson({ name: "", age: "" });
   };
-
-  // function to remove person from list
   const handleRemovePerson = (index) => {
     const newPersons = [...persons];
     newPersons.splice(index, 1);
@@ -22,7 +15,7 @@ const PersonList = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", paddingBottom: "25px" }}>
+    <div>
       <h2>Person List</h2>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <table>

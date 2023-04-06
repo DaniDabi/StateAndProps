@@ -16,9 +16,9 @@ function Counter() {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div>
       <h2>Counter</h2>
-      <p style={{ fontSize: "3rem", fontWeight: "bold" }}>{count}</p>
+      <p className="counter">{count}</p>
       <div>
         <button style={{ marginRight: "10px" }} onClick={incrementCount}>
           +

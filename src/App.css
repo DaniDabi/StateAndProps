@@ -16,7 +16,21 @@ td {
   border: 1px solid black;
   padding: 8px;
 }
-
+div {
+  text-align: center;
+}
+.person {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.greetings {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.counter {
+  font-size: 3rem;
+  font-weight: bold;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
