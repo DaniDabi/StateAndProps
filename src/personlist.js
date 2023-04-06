@@ -32,7 +32,10 @@ const PersonList = () => {
                 <td>{person.name}</td>
                 <td>{person.age}</td>
                 <td>
-                  <button onClick={() => handleRemovePerson(index)}>
+                  <button
+                    className="btn-remove"
+                    onClick={() => handleRemovePerson(index)}
+                  >
                     Remove
                   </button>
                 </td>
@@ -43,6 +46,7 @@ const PersonList = () => {
       </div>
       <div>
         <input
+          className="addPerson"
           type="text"
           value={newPerson.name}
           onChange={(e) => setNewPerson({ ...newPerson, name: e.target.value })}
@@ -51,13 +55,16 @@ const PersonList = () => {
       </div>
       <div>
         <input
+          className="addPerson"
           type="text"
           value={newPerson.age}
           onChange={(e) => setNewPerson({ ...newPerson, age: e.target.value })}
           placeholder="Age"
         />
       </div>
-      <button onClick={handleAddPerson}>Add Person</button>
+      <button className="btn-addPerson" onClick={handleAddPerson}>
+        Add Person
+      </button>
     </div>
   );
 };

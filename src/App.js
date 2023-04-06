@@ -8,14 +8,14 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="greetings" style={{ borderBottom: "1px solid black" }}>
+      <div>
         <h1 style={{ textAlign: "center" }}>Greetings</h1>
         <Greetings name="John" />
         <Greetings name="Mary" />
         <Greetings name="Alex" />
         <Greetings name="Sarah" />
       </div>
-      <div style={{ borderBottom: "1px solid black", padding: "10px" }}>
+      <div>
         <Counter />
       </div>
       <div style={{ borderBottom: "1px solid black", padding: "10px" }}>

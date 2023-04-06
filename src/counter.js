@@ -16,7 +16,7 @@ function Counter() {
   };
 
   return (
-    <div>
+    <div className="counterContainer">
       <h2>Counter</h2>
       <p className="counter">{count}</p>
       <div>
@@ -26,7 +26,9 @@ function Counter() {
         <button style={{ marginRight: "10px" }} onClick={decrementCount}>
           -
         </button>
-        <button onClick={resetCount}>Reset</button>
+        <button className="btn-counter" onClick={resetCount}>
+          Reset
+        </button>
       </div>
     </div>
   );
