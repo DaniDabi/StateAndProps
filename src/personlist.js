@@ -1,85 +1,72 @@
 import React, { useState } from "react";
-import Person from "./person";
 
-function PersonList(props) {
-  const { people } = props;
+// PersonList component
+const PersonList = () => {
+  // state to store list of persons
+  const [persons, setPersons] = useState([{ name: "John", age: 25 }]);
+
+  // state to store name and age of new person
   const [newPerson, setNewPerson] = useState({ name: "", age: "" });
 
-  const handleNameChange = (event) => {
-    setNewPerson({ ...newPerson, name: event.target.value });
-  };
-
-  const handleAgeChange = (event) => {
-    setNewPerson({ ...newPerson, age: event.target.value });
-  };
-
+  // function to add new person to list
   const handleAddPerson = () => {
-    props.onAddPerson(newPerson);
+    setPersons([...persons, newPerson]);
     setNewPerson({ name: "", age: "" });
   };
 
-  const handleRemovePerson = (personId) => {
-    props.onRemovePerson(personId);
-  };
-
-  const renderPeople = () => {
-    return people ? (
-      <>
-        {people.map((person) => (
-          <Person
-            name={person.name}
-            age={person.age}
-            onRemove={() => handleRemovePerson(person.id)}
-          />
-        ))}
-      </>
-    ) : (
-      <tr>
-        <td colSpan="2">No people to display</td>
-      </tr>
-    );
+  // function to remove person from list
+  const handleRemovePerson = (index) => {
+    const newPersons = [...persons];
+    newPersons.splice(index, 1);
+    setPersons(newPersons);
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div>
-        <h2>People</h2>
+    <div style={{ textAlign: "center", paddingBottom: "25px" }}>
+      <h2>Person List</h2>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <table>
           <thead>
             <tr>
               <th>Name</th>
               <th>Age</th>
-              <th>Actions</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {renderPeople()}
-            <tr>
-              <td>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={newPerson.name}
-                  onChange={handleNameChange}
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  placeholder="Age"
-                  value={newPerson.age}
-                  onChange={handleAgeChange}
-                />
-              </td>
-              <td>
-                <button onClick={handleAddPerson}>Add Person</button>
-              </td>
-            </tr>
+            {persons.map((person, index) => (
+              <tr key={index}>
+                <td>{person.name}</td>
+                <td>{person.age}</td>
+                <td>
+                  <button onClick={() => handleRemovePerson(index)}>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      <div>
+        <input
+          type="text"
+          value={newPerson.name}
+          onChange={(e) => setNewPerson({ ...newPerson, name: e.target.value })}
+          placeholder="Name"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          value={newPerson.age}
+          onChange={(e) => setNewPerson({ ...newPerson, age: e.target.value })}
+          placeholder="Age"
+        />
+      </div>
+      <button onClick={handleAddPerson}>Add Person</button>
     </div>
   );
-}
+};
 
 export default PersonList;

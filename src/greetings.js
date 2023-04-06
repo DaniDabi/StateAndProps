@@ -5,7 +5,14 @@ function Greetings(props) {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <p style={{ fontSize: "1.5rem", fontWeight: "bold" }}>{message}</p>
+      <p
+        style={{
+          fontSize: "1rem",
+          fontWeight: "bold",
+        }}
+      >
+        {message}
+      </p>
     </div>
   );
 }

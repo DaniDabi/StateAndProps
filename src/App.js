@@ -2,22 +2,30 @@ import React from "react";
 import Greetings from "./greetings";
 import PersonList from "./personlist";
 import Counter from "./counter";
+import Person from "./person";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <div className="greetings">
+      <div className="greetings" style={{ borderBottom: "1px solid black" }}>
+        <h1 style={{ textAlign: "center" }}>Greetings</h1>
         <Greetings name="John" />
         <Greetings name="Mary" />
         <Greetings name="Alex" />
         <Greetings name="Sarah" />
       </div>
-      <div>
-        <PersonList />
-      </div>
-      <div>
+      <div style={{ borderBottom: "1px solid black", padding: "10px" }}>
         <Counter />
+      </div>
+      <div style={{ borderBottom: "1px solid black", padding: "10px" }}>
+        <h2 style={{ textAlign: "center" }}>Person</h2>
+        <Person name="John " age="25" />
+        <Person name="Dane " age="23" />
+        <Person name="Dave " age="23" />
+      </div>
+      <div style={{ borderBottom: "1px solid black", padding: "10px" }}>
+        <PersonList />
       </div>
     </>
   );
